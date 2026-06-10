@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marcacion de asistencia</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="attendance-panel" aria-labelledby="app-title">
+        <header class="panel-header">
+          <div class="brand-mark" aria-hidden="true">A</div>
+          <div>
+            <p class="eyebrow">Control de asistencia</p>
+            <h1 id="app-title">Marcacion</h1>
+          </div>
+          <div class="clock" aria-label="Hora local de El Salvador">
+            <span>Hora local</span>
+            <strong data-clock>--:--:--</strong>
+          </div>
+        </header>
+
+        <div class="config-alert" data-config-alert hidden>
+          Falta configurar la URL del Web App en <strong>script.js</strong>.
+        </div>
+
+        <form class="attendance-form" data-attendance-form novalidate>
+          <label for="codigo">Codigo de empleado</label>
+          <div class="input-row">
+            <input
+              id="codigo"
+              name="codigo"
+              type="text"
+              inputmode="numeric"
+              autocomplete="off"
+              pattern="[0-9]{8}-[0-9]"
+              maxlength="10"
+              placeholder="Ej. 02325015-3"
+              required
+              autofocus
+            />
+            <button class="submit-button" type="submit" data-submit>
+              <span data-button-text>Marcar asistencia</span>
+              <span class="button-loader" data-button-loader hidden></span>
+            </button>
+          </div>
+          <p class="server-note">Fecha y hora oficial: Apps Script, America/El_Salvador.</p>
+        </form>
+
+        <section class="status" data-status aria-live="polite" hidden>
+          <h2 data-status-title></h2>
+          <p data-status-message></p>
+          <dl data-status-details></dl>
+        </section>
+      </section>
+    </main>
+
+    <noscript>Activa JavaScript para registrar la marcacion.</noscript>
+    <script src="script.js"></script>
+  </body>
+</html>
